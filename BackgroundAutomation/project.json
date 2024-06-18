@@ -2,7 +2,7 @@
   "name": "BackgroundAutomation",
   "projectId": "2f562949-d209-4cc3-8b86-90e4ad4d0311",
   "description": "Background_Automation",
-  "main": "Main.xaml",
+  "main": "TestScope.xaml",
   "dependencies": {
     "InternalLabs.GPT.Activities": "1.0.0",
     "UiPath.Database.Activities": "[1.7.0]",
@@ -12,7 +12,7 @@
     "UiPath.IntelligentOCR.Activities": "6.14.0-preview",
     "UiPath.Mail.Activities": "[1.20.3]",
     "UiPath.PDF.Activities": "3.15.0-preview",
-    "UiPath.System.Activities": "[23.4.3]",
+    "UiPath.System.Activities": "[24.3.1]",
     "UiPath.Terminal.Activities": "[2.7.0]",
     "UiPath.Testing.Activities": "[23.4.1]",
     "UiPath.UIAutomation.Activities": "[23.4.8]",
@@ -52,14 +52,19 @@
       "ignoredFiles": []
     },
     "fileInfoCollection": [],
-    "modernBehavior": true,
     "saveToCloud": false
   },
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
     {
-      "filePath": "Main.xaml",
-      "uniqueId": "3757e905-3652-4f0e-a503-462c1e7a3d25",
+      "filePath": "TestScope.xaml",
+      "uniqueId": "2e03809b-a199-4ccf-a7be-3c3603ea92d4",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "Excel\\ExcelNewActivityIntegration.xaml",
+      "uniqueId": "e91a9471-5f14-4c12-8c6b-9a61e2e8f709",
       "input": [],
       "output": []
     }

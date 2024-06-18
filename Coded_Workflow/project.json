@@ -5,13 +5,13 @@
   "main": "Main.xaml",
   "dependencies": {
     "InternalLabs.OpenAI.DallE.Activities": "1.0.1",
-    "UiPath.Excel.Activities": "[2.22.3]",
-    "UiPath.Mail.Activities": "[1.21.1]",
+    "UiPath.Excel.Activities": "[2.22.4]",
+    "UiPath.Mail.Activities": "[1.23.1]",
     "UiPath.OpenAI.IntegrationService.Activities": "[6.1.0]",
-    "UiPath.System.Activities": "[23.10.5]",
-    "UiPath.Testing.Activities": "[23.10.1]",
+    "UiPath.System.Activities": "[24.3.0]",
+    "UiPath.Testing.Activities": "[23.10.0]",
     "UiPath.UIAutomation.Activities": "[23.10.8]",
-    "UiPath.WebAPI.Activities": "[1.18.0]"
+    "UiPath.WebAPI.Activities": "[1.20.1]"
   },
   "webServices": [],
   "entitiesStores": [],

@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:Annotation.AnnotationText="UPTF00000088eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8VmVyc2lvbj5rX19CYWNraW5nRmllbGQiOjF9" sap:VirtualizedContainerService.HintSize="1030,1250" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -25,6 +25,23 @@
       <x:String>System.Windows.Markup</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -53,13 +70,86 @@
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="512,1185" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:ReadCsvFile DataTable="[dt]" Delimitator="Comma" DisplayName="Read CSV" FilePath="C:\Users\Meezan\OneDrive - Motivity Labs\Documents\UiPath\UiPath\UIAutomation\example.csv" sap:VirtualizedContainerService.HintSize="450,194" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Automation Challenge - OCR" sap:VirtualizedContainerService.HintSize="450,903" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" IsIncognito="True" OpenMode="IfNotOpen" ScopeGuid="9fc23258-97e3-4302-b177-30f2f6bd9dca" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,663" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'START'" sap:VirtualizedContainerService.HintSize="354,197" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="9fc23258-97e3-4302-b177-30f2f6bd9dca" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://rpachallengeocr.azurewebsites.net/" CvTextArea="296, 958, 58, 16" CvTextArgument="START" CvType="Text" DesignTimeRectangle="296, 958, 58, 17" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'START'" FullSelectorArgument="&lt;webctrl aaname='*Start*' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='start' tag='BUTTON' type='' class='btn btn-block btn-md btn-success btn-start' aaname='START' check:innerText='START' /&gt;" Guid="5f5b82f3-e9e3-499c-81fd-70b71863fe97" InformativeScreenshot="8349506629eda56aa7a5155390280ae5.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Automation Challenge - OCR' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='#' ReferenceIdx='0' Name='#'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='ID' ReferenceIdx='1' Name='ID'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Due Date' ReferenceIdx='2' Name='Due Date'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Invoice' ReferenceIdx='3' Name='Invoice'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Invoice Url' ReferenceIdx='4' Name='Invoice Url'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='#' attr='fulltext' /&gt;&lt;column name='ID' attr='fulltext' /&gt;&lt;column name='Due Date' attr='fulltext' /&gt;&lt;column name='Invoice' attr='fulltext' name2='Invoice Url' attr2='href' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="354,197" sap2010:WorkflowViewState.IdRef="NExtractData_2" LimitExtractionTo="None" MaximumResults="0" Version="V3">
+              <uix:NExtractData.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="757, 230, 1042, 195" DesignTimeScaleFactor="1" FriendlyName="'#IDDue DateInvoice'" FullSelectorArgument="&lt;webctrl id='tableSandbox' tag='TABLE' /&gt;" Guid="f6faebdf-f59a-4dc3-be88-632d8486d563" InformativeScreenshot="bf64f2e76b121cbd2e829c4d838d6fb4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Automation Challenge - OCR' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NExtractData.Target>
+            </uix:NExtractData>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '1'" sap:VirtualizedContainerService.HintSize="354,182" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="9fc23258-97e3-4302-b177-30f2f6bd9dca" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://rpachallengeocr.azurewebsites.net/" CvTextArea="1633, 470, 7, 13" CvTextArgument="1" CvType="Text" DesignTimeRectangle="1618, 459, 38, 36" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'1'" FullSelectorArgument="&lt;webctrl aaname='1' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='1' parentid='tableSandbox_paginate' tag='A' type='' class='paginate_button current' check:innerText='1' /&gt;" Guid="e1b5c60a-3dbe-45ec-bb66-892db00b1dbd" InformativeScreenshot="f39f49867532cd1c3b76f2113b0efbcc.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Automation Challenge - OCR' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1048" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="b84fc90b636746ecb530f58b8587e6ea.jpg" Selector="&lt;html app='chrome.exe' title='Automation Challenge - OCR' /&gt;" Title="Automation Challenge - OCR" Url="https://rpachallengeocr.azurewebsites.net/" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
   </Sequence>
 </Activity>
