@@ -1,0 +1,16 @@
+function(element,JSONString)
+{
+	const JSONObject = JSON.parse(JSONString)
+	
+	for(i=0; i<=const.length;i++)
+	{
+		document.querySelector('input[ng-reflect-name="labelFirstName"]').value = JSONObject[i]['First Name'];
+		document.querySelector('input[ng-reflect-name="labelLastName"]').value = JSONObject[i]['Last Name '];
+		document.querySelector('input[ng-reflect-name="labelEmail"]').value = JSONObject[i]['Email'];
+		document.querySelector('input[ng-reflect-name="labelRole"]').value = JSONObject[i]['Role in Company'];
+		document.querySelector('input[ng-reflect-name="labelAddress"]').value = JSONObject[i]['Address'];
+		document.querySelector('input[ng-reflect-name="labelPhone"]').value = JSONObject[i]['Phone Number'];
+		document.querySelector('input[ng-reflect-name="labelCompanyName"]').value = JSONObject[i]['Company Name'];
+		document.querySelector('input[type="submit"]').click();
+	}
+}
