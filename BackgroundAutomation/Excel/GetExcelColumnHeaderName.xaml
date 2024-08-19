@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="DateTime_Experiment" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="924.8955223880597,636.179104477612" sap2010:WorkflowViewState.IdRef="DateTime_Experiment_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="DateTime_Experiment" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="553.7280000000001,616.7040000000001" sap2010:WorkflowViewState.IdRef="DateTime_Experiment_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -35,6 +35,7 @@
       <x:String>System.Reflection</x:String>
       <x:String>UiPath.Excel.Activities</x:String>
       <x:String>UiPath.Excel.Helpers</x:String>
+      <x:String>System.Linq.Expressions</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -93,9 +94,16 @@
       <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DateTime_Experiment" sap:VirtualizedContainerService.HintSize="495.7611940298508,570.9850746268658" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DateTime_Experiment" sap:VirtualizedContainerService.HintSize="495.36,551.424" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtone" />
       <Variable x:TypeArguments="x:Int32" Name="GetCloumnIndex" />
@@ -106,8 +114,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadRange AddHeaders="True" DataTable="[dtone]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="433.43283582089555,88.11940298507463" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="A1" SheetName="Sample-spreadsheet-file" WorkbookPath="ModuleDocuments\SampleXLSFile_10k.xls" />
-    <Assign sap:VirtualizedContainerService.HintSize="433.43283582089555,82.38805970149254" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <ui:ReadRange AddHeaders="True" DataTable="[dtone]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="433.92,121.34400000000001" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="A1" SheetName="Sample-spreadsheet-file" WorkbookPath="[Directory.GetCurrentDirectory+&quot;\Data\SampleXLSFile_10k.xls&quot;]" />
+    <Assign sap:VirtualizedContainerService.HintSize="433.92,115.968" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[GetCloumnIndex]</OutArgument>
       </Assign.To>
@@ -115,7 +123,7 @@
         <InArgument x:TypeArguments="x:Int32">[UiPath.Excel.Helpers.ExcelUtilities.ConvertColumnLetterToColumnIndex("A")]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="433.43283582089555,82.38805970149254" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <Assign sap:VirtualizedContainerService.HintSize="433.92,115.968" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[GetClumnName]</OutArgument>
       </Assign.To>
@@ -123,6 +131,6 @@
         <InArgument x:TypeArguments="x:String">[UiPath.Excel.Helpers.ExcelUtilities.ConvertColumnIndexToColumnLetter(10)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="433.43283582089555,85.97014925373135" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;Column Index: &quot;+GetCloumnIndex.ToString+Environment.NewLine+&quot;Column Name: &quot;+GetClumnName.ToString]" />
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="433.92,109.82400000000001" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;Column Index: &quot;+GetCloumnIndex.ToString+Environment.NewLine+&quot;Column Name: &quot;+GetClumnName.ToString]" />
   </Sequence>
 </Activity>

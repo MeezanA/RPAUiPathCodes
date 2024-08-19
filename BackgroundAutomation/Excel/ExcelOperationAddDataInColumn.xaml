@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="978.4615384615385,545.7230769230769" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="553.7280000000001,566.0160000000001" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -40,6 +40,7 @@
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>UiPath.DocumentProcessing.Contracts.Training</x:String>
       <x:String>UiPath.DocumentProcessing.Contracts</x:String>
+      <x:String>System.Linq.Expressions</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -114,9 +115,13 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
       <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="496.24615384615385,477.78461538461534" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="495.36,443.90400000000005" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtone" />
       <Variable x:TypeArguments="s:DateTime" Name="dateCal" />
@@ -128,8 +133,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadCsvFile DataTable="[dtone]" Delimitator="Comma" DisplayName="Read CSV" FilePath="C:\Users\meeza\OneDrive\Documents\BranchReconciliation_TransactionId_SortCodes_Queue-items.csv" sap:VirtualizedContainerService.HintSize="434.2153846153846,154.33846153846153" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
-    <Assign sap:VirtualizedContainerService.HintSize="434.2153846153846,81.23076923076923" sap2010:WorkflowViewState.IdRef="Assign_6">
+    <ui:ReadCsvFile DataTable="[dtone]" Delimitator="Comma" DisplayName="Read CSV" FilePath="[Directory.GetCurrentDirectory+&quot;\Data\Documents\BranchReconciliation_TransactionId_SortCodes_Queue-items.csv&quot;]" sap:VirtualizedContainerService.HintSize="433.92,191.232" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+    <Assign sap:VirtualizedContainerService.HintSize="433.92,115.968" sap2010:WorkflowViewState.IdRef="Assign_6">
       <Assign.To>
         <OutArgument x:TypeArguments="sd:DataTable">[dtClone2]</OutArgument>
       </Assign.To>
@@ -137,13 +142,13 @@
         <InArgument x:TypeArguments="sd:DataTable">[dtone.Clone()]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="434.2153846153846,51.692307692307686" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Enumerable.Range(1,31)]">
+    <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="433.92,48.384" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Enumerable.Range(1,31)]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:Int32">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Int32" Name="currentNumber" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="576,1137.9692307692308" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="594.432,1118.208" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="Finaldate" />
             </Sequence.Variables>
@@ -152,7 +157,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="533.9076923076923,81.23076923076923" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign sap:VirtualizedContainerService.HintSize="532.9920000000001,115.968" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="s:DateTime">[dateCal]</OutArgument>
               </Assign.To>
@@ -160,7 +165,7 @@
                 <InArgument x:TypeArguments="s:DateTime">[DateTime.Now]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="533.9076923076923,81.23076923076923" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign sap:VirtualizedContainerService.HintSize="532.9920000000001,115.968" sap2010:WorkflowViewState.IdRef="Assign_2">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[actualdate]</OutArgument>
               </Assign.To>
@@ -168,7 +173,7 @@
                 <InArgument x:TypeArguments="x:String">[dateCal.Day.ToString.Trim]</InArgument>
               </Assign.Value>
             </Assign>
-            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="533.9076923076923,507.3230769230769" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="532.9920000000001,516.096" sap2010:WorkflowViewState.IdRef="TryCatch_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -176,13 +181,13 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <TryCatch.Try>
-                <Sequence sap:VirtualizedContainerService.HintSize="496.24615384615385,283.5692307692307" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                <Sequence sap:VirtualizedContainerService.HintSize="495.36,252.67200000000003" sap2010:WorkflowViewState.IdRef="Sequence_9">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Assign sap:VirtualizedContainerService.HintSize="434.2153846153846,81.23076923076923" sap2010:WorkflowViewState.IdRef="Assign_3">
+                  <Assign sap:VirtualizedContainerService.HintSize="433.92,115.968" sap2010:WorkflowViewState.IdRef="Assign_3">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[Finaldate]</OutArgument>
                     </Assign.To>
@@ -190,13 +195,13 @@
                       <InArgument x:TypeArguments="x:String">[CDate(dateCal.ToString.Split(" "c)(0).ToString.Replace(actualdate,if(currentNumber.ToString.Length=1,"0"+currentNumber.ToString,currentNumber.ToString))).ToShortDateString]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtone.AsEnumerable.Where(function(fx) fx(&quot;Status&quot;).ToString.Trim=&quot;Successful&quot; AndAlso fx(&quot;Status&quot;).ToString.Trim=&quot;Failed&quot; Or fx(&quot;Status&quot;).ToString.Trim=&quot;Successful&quot; Or fx(&quot;Status&quot;).ToString.Trim=&quot;Failed&quot;).ToArray().CopyToDataTable()]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="434.2153846153846,51.692307692307686" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                  <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtone.AsEnumerable.Where(function(fx) fx(&quot;Status&quot;).ToString.Trim=&quot;Successful&quot; AndAlso fx(&quot;Status&quot;).ToString.Trim=&quot;Failed&quot; Or fx(&quot;Status&quot;).ToString.Trim=&quot;Successful&quot; Or fx(&quot;Status&quot;).ToString.Trim=&quot;Failed&quot;).ToArray().CopyToDataTable()]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="433.92,48.384" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                     <ui:ForEachRow.Body>
                       <ActivityAction x:TypeArguments="sd:DataRow">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496.24615384615385,693.4153846153846" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="511.48800000000006,773.3760000000001" sap2010:WorkflowViewState.IdRef="Sequence_4">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:String" Name="Starteddate" />
                           </Sequence.Variables>
@@ -205,7 +210,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Assign sap:VirtualizedContainerService.HintSize="434.2153846153846,81.23076923076923" sap2010:WorkflowViewState.IdRef="Assign_4">
+                          <Assign sap:VirtualizedContainerService.HintSize="450.048,115.968" sap2010:WorkflowViewState.IdRef="Assign_4">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">[Starteddate]</OutArgument>
                             </Assign.To>
@@ -213,7 +218,7 @@
                               <InArgument x:TypeArguments="x:String">[CDate(row("Started").ToString.Trim).ToShortDateString]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <If Condition="[Starteddate.Contains(Finaldate) = true]" sap:VirtualizedContainerService.HintSize="434.2153846153846,461.5384615384615" sap2010:WorkflowViewState.IdRef="If_1">
+                          <If Condition="[Starteddate.Contains(Finaldate) = true]" sap:VirtualizedContainerService.HintSize="450.048,569.0880000000001" sap2010:WorkflowViewState.IdRef="If_1">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -221,17 +226,17 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <If.Then>
-                              <Sequence sap:VirtualizedContainerService.HintSize="376.83582089552243,279.4029850746269" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416.25600000000003,302.59200000000004" sap2010:WorkflowViewState.IdRef="Sequence_6">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[row.ItemArray]" DataTable="[dtClone2]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="333.85074626865674,190.56716417910448" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[row.ItemArray]" DataTable="[dtClone2]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354.81600000000003,214.27200000000002" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
                               </Sequence>
                             </If.Then>
                             <If.Else>
-                              <Sequence sap:VirtualizedContainerService.HintSize="300.17910447761193,82.38805970149254" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416.25600000000003,104.44800000000001" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -253,7 +258,7 @@
                 </Sequence>
               </TryCatch.Try>
               <TryCatch.Catches>
-                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="499.9384615384615,20.676923076923075" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="499.20000000000005,23.040000000000003" sap2010:WorkflowViewState.IdRef="Catch`1_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -268,8 +273,8 @@
                 </Catch>
               </TryCatch.Catches>
             </TryCatch>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="533.9076923076923,139.56923076923076" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[&quot;Date : &quot;+Finaldate+&quot; count: &quot;+dtClone2.Rows.Count.ToString]" />
-            <Assign sap:VirtualizedContainerService.HintSize="533.9076923076923,81.23076923076923" sap2010:WorkflowViewState.IdRef="Assign_7">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="532.9920000000001,175.104" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[&quot;Date : &quot;+Finaldate+&quot; count: &quot;+dtClone2.Rows.Count.ToString]" />
+            <Assign sap:VirtualizedContainerService.HintSize="532.9920000000001,106.75200000000001" sap2010:WorkflowViewState.IdRef="Assign_7">
               <Assign.To>
                 <OutArgument x:TypeArguments="sd:DataTable">[dtClone2]</OutArgument>
               </Assign.To>

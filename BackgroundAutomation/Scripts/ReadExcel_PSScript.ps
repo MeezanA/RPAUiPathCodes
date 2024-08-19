@@ -1,0 +1,11 @@
+
+Import-Module ImportExcel
+
+
+$excelFilePath = filePath
+
+$data = Import-Excel -Path $excelFilePath
+
+# Display the content (formula results)
+$data | Format-Table -AutoSize
+

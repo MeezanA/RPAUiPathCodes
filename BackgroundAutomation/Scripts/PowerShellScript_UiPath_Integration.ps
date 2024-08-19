@@ -1,0 +1,8 @@
+
+
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Install-Module -Name ImportExcel -Force 
+Import-Module ImportExcel
+$excelFilePath = "C:\Users\meeza\OneDrive\Documents\UiPath\RoughGraph\TechFun786\Output.xlsx"
+$data = Import-Excel -Path $excelFilePath
+$data | Format-Table -AutoSize

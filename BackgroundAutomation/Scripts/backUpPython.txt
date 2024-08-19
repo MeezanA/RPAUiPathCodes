@@ -1,0 +1,33 @@
+import pandas as pd;
+
+
+##xls
+
+a = pd.read_excel(r"C:\Users\meeza\OneDrive\Documents\UiPath\RoughGraph\Raju\Staples Jun 2024 MSIS.xls",engine='xlrd')
+
+##xlsx
+
+a = pd.read_excel(r"C:\Users\meeza\OneDrive\Documents\UiPath\RoughGraph\Raju\Staples Jun 2024 MSIS.xlsx")
+
+
+##csv
+
+a = pd.read_excel(r"C:\Users\meeza\OneDrive\Documents\UiPath\RoughGraph\Raju\Staples Jun 2024 MSIS.csv")
+
+##xlsb
+
+a = pd.read_excel(r"C:\Users\meeza\OneDrive\Documents\UiPath\RoughGraph\Raju\Staples Jun 2024 MSIS.xlsb",engine='pyxlsb')
+
+##xlsm
+
+a = pd.read_excel(r"C:\Users\meeza\OneDrive\Documents\UiPath\RoughGraph\Raju\Staples Jun 2024 MSIS.xlsm")
+print(a)
+
+
+.xlsx: The default extension for Excel 2007 and later, and is used for workbooks, spreadsheets, and documents. XLSX is an open file format, so it's more likely to be read correctly by other spreadsheet programs. 
+.xls: The default extension for Excel before 2007, and is considered a legacy format. It's officially called "Microsoft Excel 97–2003 Worksheet" or "Microsoft Excel 5.0/95 Workbook". The latest version of Excel can still open .xls files, but they are no longer being developed. 
+.xlx: Another legacy format, and is officially called "Microsoft Excel 97–2003 Template". It's used for Excel templates. 
+.xlm: Another legacy format, and is used for Excel macros. 
+.csv: Stands for comma separated values. 
+.ods: Stands for Open Document Spreadsheet, and is an XML-based format. 
+.xltx: Used for Excel template files, and users can also add up to 250 custom file formats
