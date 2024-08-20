@@ -1,4 +1,4 @@
-using RPAChallenges.ObjectRepository;
+//using RPAChallenges.ObjectRepository;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,8 +7,8 @@ using UiPath.Core;
 using UiPath.Core.Activities.Storage;
 using UiPath.Excel;
 using UiPath.Excel.Activities;
-using UiPath.Excel.Activities.API;
-using UiPath.Excel.Activities.API.Models;
+//using UiPath.Excel.Activities.API;
+//using UiPath.Excel.Activities.API.Models;
 using UiPath.Orchestrator.Client.Models;
 using UiPath.Testing;
 using UiPath.Testing.Activities.TestData;
@@ -43,26 +43,29 @@ namespace RPAChallenges
             public static readonly string RoleInCompany = "Role in Company";
             public static readonly string Start = "Start";
             public static readonly string Submit = "Submit";
-            public static readonly string LastName = "Last Name";
+            public static readonly string LastName = "Last Name ";
         }
-    public class Workflow : CodedWorkflow
+    public class Workflow : UiPathCodedWorkflow.CodedWorkflow
     {
+        private const bool V1 = true;
+        private const bool V = V1;
+
         [Workflow]
         
         public void Execute()
-        {
-           
-            var sapp = uiAutomation.Open("Chrome: Rpa Challenge");    // var screen = uiAutomation.Open(Descriptors.MyApp.FirstScreen);
-            
-            sapp.Click("Start");    // screen.Click(Descriptors.MyApp.FirstScreen.SettingsButton);
-        
-            var result = RunWorkflow("ReadExcelData.xaml", new Dictionary<string, object>(){});
+        {            
+            //var SimulateStatus = UiPath.Core.SimulateEventType:True;
+            var result = RunWorkflow("RPAChallenge_1\\ReadExcelData.xaml", new Dictionary<string, object>(){});
             
             DataTable dt_Data = (DataTable) result["out_dt_RPA"];
             
+            var sapp = uiAutomation.Open("Chrome: Rpa Challenge");    // var screen = uiAutomation.Open(Descriptors.MyApp.FirstScreen);
+            
+            sapp.Click("Start");    // screen.Click(Descriptors.MyApp.FirstScreen.SettingsButton);
+            
             foreach(DataRow row in dt_Data.Rows)
             {
-                 sapp.TypeInto(Elms.Address, row[Data.Address].ToString());
+                 sapp.TypeInto(Elms.Address, row[Data.Address].ToString()); 
                  sapp.TypeInto(Elms.FirstName, row[Data.FirstName].ToString());
                  sapp.TypeInto(Elms.LastName, row[Data.LastName].ToString());
                  sapp.TypeInto(Elms.CompanyName, row[Data.CompanyName].ToString());

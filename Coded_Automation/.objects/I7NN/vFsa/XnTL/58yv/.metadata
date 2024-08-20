@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Download Excel",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "58yvwKb4o0ap_Sc4NL16sg",
+  "Reference": "t5aWFQBPBkKjbQG_-AbNWg/58yvwKb4o0ap_Sc4NL16sg",
+  "ParentRef": "t5aWFQBPBkKjbQG_-AbNWg/XnTLqBiXb0yxakMzOVr7tg",
+  "Created": "2024-08-20T08:02:43.9089288Z",
+  "Updated": "2024-08-20T08:02:43.9089288Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=24.2.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
