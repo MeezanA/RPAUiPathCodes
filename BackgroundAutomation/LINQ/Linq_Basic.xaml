@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Linq_Basic" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="672,762.9090909090909" sap2010:WorkflowViewState.IdRef="Linq_Basic_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Linq_Basic" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="871.6800000000001,735.744" sap2010:WorkflowViewState.IdRef="Linq_Basic_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -91,7 +91,7 @@
       <AssemblyReference>System.Collections</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Linq_Basic" sap:VirtualizedContainerService.HintSize="496,697.4545454545455" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Linq_Basic" sap:VirtualizedContainerService.HintSize="495.36,670.464" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_sample" />
       <Variable x:TypeArguments="x:String" Name="MinValue" />
@@ -102,8 +102,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadRange AddHeaders="True" DataTable="[dt_sample]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="434.1818181818182,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="A1" SheetName="Sheet1" WorkbookPath="ModuleDocuments\SampleXLSFile_50k.xls" />
-    <Assign sap:VirtualizedContainerService.HintSize="434.1818181818182,82.9090909090909" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:ReadRange AddHeaders="True" DataTable="[dt_sample]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="433.92,121.34400000000001" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="A1" SheetName="Sheet1" WorkbookPath="Data\SampleXLSFile_50k.xls" />
+    <Assign sap:VirtualizedContainerService.HintSize="433.92,115.968" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[MinValue]</OutArgument>
       </Assign.To>
@@ -111,7 +111,7 @@
         <InArgument x:TypeArguments="x:String">[dt_sample.AsEnumerable().Min(function(fx) fx("Fnumber").ToString.Length).ToString()]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="434.1818181818182,82.9090909090909" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign sap:VirtualizedContainerService.HintSize="433.92,115.968" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[MaxValue]</OutArgument>
       </Assign.To>
@@ -119,7 +119,7 @@
         <InArgument x:TypeArguments="x:String">[dt_sample.AsEnumerable().Max(function(fx) fx("Fnumber").ToString.Length).ToString()]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434.1818181818182,86.54545454545455" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[String.Format(&quot;MinValue of FNumber &quot;+MinValue)]" />
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434.1818181818182,86.54545454545455" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[String.Format(&quot;MaxValue of FNumber &quot;+MaxValue)]" />
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="433.92,119.04" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[String.Format(&quot;MinValue of FNumber &quot;+MinValue)]" />
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="433.92,109.82400000000001" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[String.Format(&quot;MaxValue of FNumber &quot;+MaxValue)]" />
   </Sequence>
 </Activity>
