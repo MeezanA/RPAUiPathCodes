@@ -24,6 +24,10 @@ def ExcelData(input1, input2):
         # Read the Excel file with the specified sheet
         datam = pd.read_excel(input1, sheet_name=input2, header=0, engine='odf')
         
+    elif ".csv" in input1_lower:  # Case 6 for CSV files
+        # Read the CSV file
+        datam = pd.read_csv(input1)
+        
     else:
         raise ValueError(f"Unsupported file format: {input1}")
 
@@ -31,3 +35,4 @@ def ExcelData(input1, input2):
     datax = datam.astype(str).to_json(orient='records')
     
     return datax
+
