@@ -13,7 +13,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>783.36,1187.328</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>783.36,662.784</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Py_ExcelIntegration_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -138,7 +138,7 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Py_Excel_Integration" sap:VirtualizedContainerService.HintSize="652.032,1122.048" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Py_Excel_Integration" sap:VirtualizedContainerService.HintSize="495.36,597.504" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Object" Name="Ps_Result" />
       <Variable x:TypeArguments="p:PythonObject" Name="py_Result1" />
@@ -151,7 +151,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokePowerShell x:TypeArguments="sma:PSObject" ContinueOnError="{x:Null}" CommandText="Set-ExecutionPolicy RemoteSigned -Scope CurrentUser&#xA;$PyPath = (Get-Command python).Path" DisplayName="Invoke Power Shell" sap:VirtualizedContainerService.HintSize="590.592,112.896" sap2010:WorkflowViewState.IdRef="InvokePowerShell`1_2" IsScript="True" PowerShellProcess="PowerShellCore">
+    <ui:InvokePowerShell x:TypeArguments="sma:PSObject" ContinueOnError="{x:Null}" CommandText="Set-ExecutionPolicy RemoteSigned -Scope CurrentUser&#xA;$PyPath = (Get-Command python).Path" DisplayName="Invoke Power Shell" sap:VirtualizedContainerService.HintSize="433.92,112.896" sap2010:WorkflowViewState.IdRef="InvokePowerShell`1_2" IsScript="True" PowerShellProcess="PowerShellCore">
       <ui:InvokePowerShell.Parameters>
         <scg:Dictionary x:TypeArguments="x:String, InArgument" />
       </ui:InvokePowerShell.Parameters>
@@ -159,7 +159,7 @@
         <OutArgument x:TypeArguments="x:Object" x:Key="PyPath">[Ps_Result]</OutArgument>
       </ui:InvokePowerShell.PowerShellVariables>
     </ui:InvokePowerShell>
-    <Assign sap:VirtualizedContainerService.HintSize="590.592,115.968" sap2010:WorkflowViewState.IdRef="Assign_6">
+    <Assign sap:VirtualizedContainerService.HintSize="433.92,115.968" sap2010:WorkflowViewState.IdRef="Assign_6">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:List(x:Object)">[listOfObject]</OutArgument>
       </Assign.To>
@@ -167,54 +167,54 @@
         <InArgument x:TypeArguments="scg:List(x:Object)">[new List(of Object) from {CObj(in_FilePath), CObj(in_SheetName)}]</InArgument>
       </Assign.Value>
     </Assign>
-    <p:PythonScope OperationTimeout="{x:Null}" DisplayName="Python Scope" sap:VirtualizedContainerService.HintSize="590.592,804.864" sap2010:WorkflowViewState.IdRef="PythonScope_1" Path="[Ps_Result.ToString.Substring(0,Ps_Result.ToString.LastIndexOf(&quot;\&quot;))]" TargetPlatform="x64">
+    <p:PythonScope OperationTimeout="{x:Null}" DisplayName="Python Scope" sap:VirtualizedContainerService.HintSize="433.92,57.6" sap2010:WorkflowViewState.IdRef="PythonScope_1" Path="[Ps_Result.ToString.Substring(0,Ps_Result.ToString.LastIndexOf(&quot;\&quot;))]" TargetPlatform="x64">
       <p:PythonScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="PythonEngineSessionProperty" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="556.8000000000001,744.192" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="511.48800000000006,512.2560000000001" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Python_Addition" sap:VirtualizedContainerService.HintSize="495.36,655.8720000000001" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Python_Addition" sap:VirtualizedContainerService.HintSize="450.048,423.93600000000004" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <p:LoadScript Code="{x:Null}" DisplayName="Load Python Script" sap:VirtualizedContainerService.HintSize="433.92,92.92800000000001" sap2010:WorkflowViewState.IdRef="LoadScript_1" Result="[py_Result1]" ScriptFile="Data\Python_Excel.py" />
-              <p:InvokeMethod DisplayName="Invoke Python Method" sap:VirtualizedContainerService.HintSize="433.92,114.432" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" Instance="[py_Result1]" Name="ExcelData" Parameters="[listOfObject]" Result="[py_Result2]" />
-              <p:GetObject x:TypeArguments="x:String" DisplayName="Get Python Object" sap:VirtualizedContainerService.HintSize="433.92,114.432" sap2010:WorkflowViewState.IdRef="GetObject`1_22" PythonObject="[py_Result2]" Result="[python_Result]" />
-              <Assign sap:VirtualizedContainerService.HintSize="433.92,115.968" sap2010:WorkflowViewState.IdRef="Assign_7">
-                <Assign.To>
-                  <OutArgument x:TypeArguments="x:String">[out_JsonString]</OutArgument>
-                </Assign.To>
-                <Assign.Value>
-                  <InArgument x:TypeArguments="x:String">[python_Result]</InArgument>
-                </Assign.Value>
-              </Assign>
-              <Assign sap:VirtualizedContainerService.HintSize="433.92,106.75200000000001" sap2010:WorkflowViewState.IdRef="Assign_5">
-                <Assign.To>
-                  <OutArgument x:TypeArguments="sd:DataTable">[out_DataTable]</OutArgument>
-                </Assign.To>
-                <Assign.Value>
-                  <InArgument x:TypeArguments="sd:DataTable">[DirectCast(JsonConvert.DeserializeObject(python_Result, GetType(System.Data.DataTable)), System.Data.DataTable)]</InArgument>
-                </Assign.Value>
-              </Assign>
+              <p:LoadScript Code="{x:Null}" DisplayName="Load Python Script" sap:VirtualizedContainerService.HintSize="388.608,92.92800000000001" sap2010:WorkflowViewState.IdRef="LoadScript_1" Result="[py_Result1]" ScriptFile="Data\Python_Excel.py" />
+              <p:InvokeMethod DisplayName="Invoke Python Method" sap:VirtualizedContainerService.HintSize="388.608,114.432" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" Instance="[py_Result1]" Name="ExcelData" Parameters="[listOfObject]" Result="[py_Result2]" />
+              <p:GetObject x:TypeArguments="x:String" DisplayName="Get Python Object" sap:VirtualizedContainerService.HintSize="388.608,105.21600000000001" sap2010:WorkflowViewState.IdRef="GetObject`1_22" PythonObject="[py_Result2]" Result="[python_Result]" />
             </Sequence>
           </Sequence>
         </ActivityAction>
       </p:PythonScope.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </p:PythonScope>
+    <Assign sap:VirtualizedContainerService.HintSize="433.92,115.968" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_JsonString]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[python_Result]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="433.92,106.75200000000001" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataTable">[out_DataTable]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataTable">[DirectCast(JsonConvert.DeserializeObject(python_Result, GetType(System.Data.DataTable)), System.Data.DataTable)]</InArgument>
+      </Assign.Value>
+    </Assign>
   </Sequence>
 </Activity>
