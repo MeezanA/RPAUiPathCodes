@@ -99,9 +99,10 @@
       <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Py_Integration" sap:VirtualizedContainerService.HintSize="606.72,1370.112" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Py_Integration" sap:VirtualizedContainerService.HintSize="1089.0240000000001,1716.48" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Object" Name="Ps_Result" />
       <Variable x:TypeArguments="x:Object" Name="ObjNum1" />
@@ -112,7 +113,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokePowerShell x:TypeArguments="sma:PSObject" ContinueOnError="{x:Null}" CommandText="Set-ExecutionPolicy RemoteSigned -Scope CurrentUser&#xA;$PyPath = (Get-Command python).Path" DisplayName="Invoke Power Shell" sap:VirtualizedContainerService.HintSize="545.2800000000001,112.896" sap2010:WorkflowViewState.IdRef="InvokePowerShell`1_2" IsScript="True" PowerShellProcess="PowerShellCore">
+    <ui:InvokePowerShell x:TypeArguments="sma:PSObject" ContinueOnError="{x:Null}" CommandText="Set-ExecutionPolicy RemoteSigned -Scope CurrentUser&#xA;$PyPath = (Get-Command python).Path" DisplayName="Invoke Power Shell" sap:VirtualizedContainerService.HintSize="517.6320000000001,112.896" sap2010:WorkflowViewState.IdRef="InvokePowerShell`1_2" IsScript="True" PowerShellProcess="PowerShellCore">
       <ui:InvokePowerShell.Parameters>
         <scg:Dictionary x:TypeArguments="x:String, InArgument" />
       </ui:InvokePowerShell.Parameters>
@@ -120,8 +121,8 @@
         <OutArgument x:TypeArguments="x:Object" x:Key="PyPath">[Ps_Result]</OutArgument>
       </ui:InvokePowerShell.PowerShellVariables>
     </ui:InvokePowerShell>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="545.2800000000001,123.64800000000001" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Python Path: &quot;+Ps_Result.ToString.Substring(0,Ps_Result.ToString.LastIndexOf(&quot;\&quot;))+Environment.NewLine+&#xD;&#xA;&quot;Working Path: &quot;+Directory.GetCurrentDirectory+&quot;\Python&quot;]" />
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="545.2800000000001,180.48000000000002" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="517.6320000000001,123.64800000000001" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Python Path: &quot;+Ps_Result.ToString.Substring(0,Ps_Result.ToString.LastIndexOf(&quot;\&quot;))+Environment.NewLine+&#xA;&quot;Working Path: &quot;+Directory.GetCurrentDirectory+&quot;\Python&quot;]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="517.6320000000001,180.48000000000002" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -143,13 +144,13 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <p:PythonScope OperationTimeout="{x:Null}" DisplayName="Python Scope" sap:VirtualizedContainerService.HintSize="545.2800000000001,864.768" sap2010:WorkflowViewState.IdRef="PythonScope_1" Path="[Ps_Result.ToString.Substring(0,Ps_Result.ToString.LastIndexOf(&quot;\&quot;))]" TargetPlatform="x64">
+    <p:PythonScope OperationTimeout="{x:Null}" DisplayName="Python Scope" sap:VirtualizedContainerService.HintSize="517.6320000000001,1276.4160000000002" sap2010:WorkflowViewState.IdRef="PythonScope_1" Path="C:\Users\meeza\AppData\Local\Programs\Python\Python38\" TargetPlatform="x64">
       <p:PythonScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="PythonEngineSessionProperty" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="511.48800000000006,804.096" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="483.84000000000003,1215.7440000000001" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="p:PythonObject" Name="py_Objectdata" />
               <Variable x:TypeArguments="p:PythonObject" Name="py_Objectdata2" />
@@ -160,17 +161,17 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Python_Addition" sap:VirtualizedContainerService.HintSize="450.048,57.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Python_Addition" sap:VirtualizedContainerService.HintSize="450.048,524.544" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <p:LoadScript Code="{x:Null}" DisplayName="Load Python Script" sap:VirtualizedContainerService.HintSize="388.608,92.92800000000001" sap2010:WorkflowViewState.IdRef="LoadScript_1" Result="[py_Objectdata]" ScriptFile="Data\Python_Math_Add.py" />
-              <p:InvokeMethod DisplayName="Invoke Python Method" sap:VirtualizedContainerService.HintSize="388.608,114.432" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" Instance="[py_Objectdata]" Name="Addition" Parameters="[{ObjNum1,ObjNum2}]" Result="[py_Objectdata2]" />
-              <p:GetObject x:TypeArguments="x:Object" DisplayName="Get Python Object" sap:VirtualizedContainerService.HintSize="388.608,114.432" sap2010:WorkflowViewState.IdRef="GetObject`1_3" PythonObject="[py_Objectdata2]" Result="[py_Resultdata]" />
-              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="388.608,109.82400000000001" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[py_Resultdata.ToString]" />
+              <p:LoadScript Code="{x:Null}" DisplayName="Load Python Script" sap:VirtualizedContainerService.HintSize="416.25600000000003,92.92800000000001" sap2010:WorkflowViewState.IdRef="LoadScript_1" Result="[py_Objectdata]" ScriptFile="Data\Python_Math_Add.py" />
+              <p:InvokeMethod DisplayName="Invoke Python Method" sap:VirtualizedContainerService.HintSize="416.25600000000003,114.432" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" Instance="[py_Objectdata]" Name="Addition" Parameters="[{ObjNum1,ObjNum2}]" Result="[py_Objectdata2]" />
+              <p:GetObject x:TypeArguments="x:Object" DisplayName="Get Python Object" sap:VirtualizedContainerService.HintSize="416.25600000000003,114.432" sap2010:WorkflowViewState.IdRef="GetObject`1_3" PythonObject="[py_Objectdata2]" Result="[py_Resultdata]" />
+              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="416.25600000000003,109.82400000000001" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[py_Resultdata.ToString]" />
             </Sequence>
             <Sequence DisplayName="Python_Subtraction" sap:VirtualizedContainerService.HintSize="450.048,57.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
               <sap:WorkflowViewStateService.ViewState>
@@ -196,14 +197,14 @@
               <p:GetObject x:TypeArguments="x:Object" DisplayName="Get Python Object" sap:VirtualizedContainerService.HintSize="388.608,114.432" sap2010:WorkflowViewState.IdRef="GetObject`1_5" PythonObject="[py_Objectdata2]" Result="[py_Resultdata]" />
               <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="388.608,109.82400000000001" sap2010:WorkflowViewState.IdRef="MessageBox_6" Text="[py_Resultdata.ToString]" />
             </Sequence>
-            <Sequence DisplayName="Python_Division" sap:VirtualizedContainerService.HintSize="450.048,542.976" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <Sequence DisplayName="Python_Division" sap:VirtualizedContainerService.HintSize="450.048,515.328" sap2010:WorkflowViewState.IdRef="Sequence_7">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <p:LoadScript Code="{x:Null}" DisplayName="Load Python Script" sap:VirtualizedContainerService.HintSize="388.608,92.92800000000001" sap2010:WorkflowViewState.IdRef="LoadScript_4" Result="[py_Objectdata]" ScriptFile="Data\Python_Math_Div.py" />
+              <p:LoadScript Code="{x:Null}" DisplayName="Load Python Script" sap:VirtualizedContainerService.HintSize="416.25600000000003,92.92800000000001" sap2010:WorkflowViewState.IdRef="LoadScript_4" Result="[py_Objectdata]" ScriptFile="Data\Python_Math_Div.py" />
               <p:InvokeMethod DisplayName="Invoke Python Method" sap:VirtualizedContainerService.HintSize="388.608,114.432" sap2010:WorkflowViewState.IdRef="InvokeMethod_4" Instance="[py_Objectdata]" Name="Division" Parameters="[{ObjNum1,ObjNum2}]" Result="[py_Objectdata2]" />
               <p:GetObject x:TypeArguments="x:Object" DisplayName="Get Python Object" sap:VirtualizedContainerService.HintSize="388.608,114.432" sap2010:WorkflowViewState.IdRef="GetObject`1_6" PythonObject="[py_Objectdata2]" Result="[py_Resultdata]" />
               <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="388.608,109.82400000000001" sap2010:WorkflowViewState.IdRef="MessageBox_7" Text="[py_Resultdata.ToString]" />
